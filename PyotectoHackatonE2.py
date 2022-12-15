@@ -135,21 +135,24 @@ def page4(page, alumno):
     boton5.place(x=10, y=140 - 50)
     lbltext1 = Label(text="Ingrese combo: ")
     lbltext1.place(x=10, y=170 - 50)
+    boton_ret = ttk.Button(text="Regresar", command=lambda: page3(pagina4, alumno))
+    boton_ret.place(x=200, y=168)
+    boton6= ttk.button(text= "Cargar", command= lambda: guardarDeuda(alumno, carga, presio))
+    boton6.place(x=200, y =170-50)
     pagina4.geometry("520x520")
     carga= ttk.Entry()
-    carga.place(x=20, y=270)
-    carga1=cargar.get()
+    carga.place(x=100, y=170 - 50)
+    carga1=cargar.get(command=lambda: guardarDeuda(alumno, carga))
    
     
 
     boton_ret = ttk.Button(text="Regresar", command=lambda: page3(pagina4, alumno))
     boton_ret.place(x=200, y=168)
     
-    boton_asig = ttk.Button(text="Regresar1", command=lambda: guardarDeuda(alumno, carga1))
-    boton_asig.place(x=300, y=300)
+
 #,command=lambda: addCombo(0,alumno,precio)
 
-def guardarDeuda(alumno, carga):
+def guardarDeuda(alumno, carga, presio):
     alumno[7] = carga
 
 
